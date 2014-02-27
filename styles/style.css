@@ -32,15 +32,12 @@ html, body {
 		color:rgba( 255, 255, 255, 1);
 }
 .navbar .nav>.active>a, .navbar .nav>.active>a:hover, .navbar .nav>.active>a:focus {
-	color:rgba( 255, 255, 255, 1);
+	color:rgb( 255, 255, 255, 1) !important;
 	background:none;
 	box-shadow:none;
 	text-shadow:none;
 }
 /* genreic styles */
-.container-fluid {
-	height:100%;
-}
 img.center {
 	left: 50%;
 	position: relative;
@@ -121,6 +118,7 @@ p {
 	color:#fff;
 	padding:0px;
 	background-position-y: -50px;
+	height:100%;
 
 }
 .container-background {
