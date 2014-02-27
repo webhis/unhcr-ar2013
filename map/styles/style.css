@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+html, body {
+	height: 100%;
+}
+
+/* specific styling */
+#leaflet_map {
+	background: rgb(165,196,224);
+	height: 600px;
+	width:100%;
+}
+#leaflet_map .leaflet-control-zoom {
+	right: 15px;
+}
+.geolevel1 {
+	pointer-events: none;
+	opacity: 0;
+}
+.geolevel3-off {
+	pointer-events: none;
+	fill: #F4F3F0;
+	fill-opacity: 1;
+	stroke: #CCCCCC;
+	stroke-width: 2;
+}
+.geolevel3 {
+	pointer-events: all;
+}
+.geolevel3:hover {
+	fill-opacity:1;
+	stroke-width:2;
+}

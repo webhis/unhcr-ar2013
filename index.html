@@ -1,0 +1,530 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ar Launch</title>
+<link href="styles/bootstrap.min.css" type="text/css" rel="stylesheet" media="all"  />
+<link href="styles/bootstrap-responsive.min.css" type="text/css" rel="stylesheet" media="all"  />
+<link href="styles/style.css" type="text/css" rel="stylesheet" media="all"  />
+<link rel="shortcut icon" href="img/ico/siv-logo-ico.ico" type="image/x-icon">
+<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+<link rel="apple-touch-icon-precomposed" href="img/ico/apple-touch-icon-precomposed.png">
+<!-- For first- and second-generation iPad: -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/ico/apple-touch-icon-72x72-precomposed.png">
+<!-- For iPhone with high-resolution Retina display: -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/ico/apple-touch-icon-114x114-precomposed.png">
+<!-- For third-generation iPad with high-resolution Retina display: -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/ico/apple-touch-icon-144x144-precomposed.png">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="scripts/bootstrap.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//use the values in the key indicators to fade the background circle
+	$('.indicator-value').each(function(){
+		var fade = $(this).children('div').text();
+		fade = fade.replace('%', '');
+		//taking the the value from the html creates a lot of white space
+		fade = fade.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+		fade = 'rgba(147,148,152,.'+fade+')';
+		$(this).css('background-color', fade);
+	});
+	
+$('.carousel').carousel({interval: 4000});
+var lastId,
+    topMenu = $("#nav"),
+    topMenuHeight = topMenu.outerHeight(),
+    // All list items
+    menuItems = topMenu.find("a"),
+    // Anchors corresponding to menu items
+    scrollItems = menuItems.map(function(){
+      var item = $($(this).attr("href"));
+      if (item.length) { return item; }
+    });
+
+// Bind click handler to menu items
+// so we can get a fancy scroll animation
+menuItems.click(function(e){
+  var href = $(this).attr("href"),
+      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+  $('html, body').stop().animate({ 
+      scrollTop: offsetTop
+  }, 300);
+  e.preventDefault();
+});
+
+// Bind to scroll
+$(window).scroll(function(){
+   // Get container scroll position
+   var fromTop = $(this).scrollTop()+topMenuHeight;
+   
+   // Get id of current scroll item
+   var cur = scrollItems.map(function(){
+     if ($(this).offset().top < fromTop)
+       return this;
+   });
+   // Get the id of the current element
+   cur = cur[cur.length-1];
+   var id = cur && cur.length ? cur[0].id : "";
+   
+   if (lastId !== id) {
+       lastId = id;
+       // Set/remove active class
+       menuItems
+         .parent().removeClass("active")
+         .end().filter("[href=#"+id+"]").parent().addClass("active");
+   }                   
+});
+})
+</script>
+
+<body data-spy="scroll" data-target=".nav-collapse">
+<!-- navbar -->
+<div class="navbar navbar-twine navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <div class="nav-collapse collapse">
+        <ul class="nav" id="nav">
+          <li class="active"> <a class="nav-link" href="#home" title="Next Section">Home</a></li>
+          <li> <a  class="nav-link"href="#introduction" title="Next Section">Introduction</a></li>
+          <li> <a class="nav-link" href="#indicators" title="Next Section">Key Indicators</a></li>
+          <li> <a class="nav-link" href="#map" title="Next Section">Map</a></li>
+          <li> <a class="nav-link" href="#reports" title="Next Section">Country Reports</a></li>
+          <li> <a class="nav-link" href="#acknowledgement" title="Next Section">Acknowledgements</a></li>
+          <li> <a class="nav-link" href="#contact" title="Next Section">Contact</a></li>
+        </ul>
+        <!-- /nav --> 
+      </div>
+    </div>
+    <!-- /navbar-inner --> 
+  </div>
+  <!-- /container --> 
+</div>
+<!-- /navbar -->
+
+<div class="container-fluid" id="home">
+  <div class="container-background">
+    <div class="container"> <img class="pull-left" src="img/logo.png" alt="UNHCR Annual Report"/>
+      <h1>UNHCR Public Health Section<br >
+        Annual Reports 2013</h1>
+    </div>
+  </div>
+</div>
+<!-- /container-fluid -->
+<div class="container-fluid intro-section" id="introduction">
+  <div class="container full-height">
+    <div class="row-fluid">
+      <div class="span4">
+        <div class="vertical-container">
+          <div class="vertical-center"><img src="img/intro.png" alt="AR reports"/></div>
+        </div>
+      </div>
+      <div class="span8">
+        <div class="vertical-container">
+          <div class="vertical-center">
+            <p>The Public Health Section Annual Reports are used to </br>
+              <span class="highlight">monitor key performance and impact indicators</span> in the </br>
+              sectors of Public health, Reproductive Health and </br>
+              HIV/AIDS, Nutrition, Food Security and Water, </br>
+              Sanitation and Hygiene (WASH).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /container-fluid -->
+<div class="container-fluid intro-section">
+  <div class="container full-height">
+    <div class="row-fluid">
+      <div class="span4">
+        <div class="vertical-container">
+          <div class="vertical-center"><img src="img/annual report.png" alt="2013"/></div>
+        </div>
+      </div>
+      <div class="span8">
+        <div class="vertical-container">
+          <div class="vertical-center">
+            <p>In 2013, Annual Reports were received from a total</br>
+              of <span class="highlight">47 country operations</span> and <span class="highlight">213 reporting sites</span>.</br>
+              Data was collected from a number of sources,</br>
+              including the Health Information System (HIS),</br>
+              SENS Nutrition Surveys and from partner reports.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /container-fluid -->
+<div class="container-fluid intro-section">
+  <div class="container full-height">
+    <div class="row-fluid">
+      <div class="span4">
+        <div class="vertical-container">
+          <div class="vertical-center"><img src="img/report_icons.png" alt="2013"/></div>
+        </div>
+      </div>
+      <div class="span8">
+        <div class="vertical-container">
+          <div class="vertical-center">
+            <p>The reports are used to monitor the <span class="highlight">UNHCR Public</br>
+              Health Strategic Plan 2014-2018</span>, to report into the</br>
+              <span class="highlight">UNHCR Results Based Management software (Focus)</span></br>
+              and to support the <span class="highlight">UNHCR Annual Programme</br>
+              Review (APR) 2014</span>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /container-fluid -->
+<div class="container-fluid" id="indicators">
+  <div class="container">
+    <div class="header">
+      <div class="pull-left"> <img class="header-object" src="img/key-indicators.png" /></div>
+      <div class="header-body">
+        <h1 class="header-title">Key indicators</h1>
+        <p>10 key indicators were selected for reporting in the detailed country reports. The
+          proportion of global reporting sites that met standards for each indicator is
+          shown below.</p>
+      </div>
+    </div>
+  </div>
+  <!-- /heading -->
+  <div class="container indicator-container">
+    <div class="carousel slide" data-ride="carousel" id="ind-carousel">
+      <div class="carousel-inner">
+        <div class="item active">
+          <div class="row-fluid">
+            <div class="indicator span4">
+              <div class="indicator-icon"> <img src="img/ki-1.png" /> </div>
+              <p class="indicator-name">Under 5 mortality rate</p>
+              <p class="indicator-standard"><strong>standard</strong><br />
+                &lt; 1.5 deaths/1000/ month</p>
+              <div class="indicator-value">
+                <div class="vertical-container">
+                  <div class="vertical-center">93%</div>
+                </div>
+              </div>
+              <p class="indicator-note">of a total of 188 reporting sites met the standard</p>
+            </div>
+            <!-- /indicator -->
+            <div class="indicator span4">
+              <div class="indicator-icon"><img src="img/ki-2.png" /> </div>
+              <p class="indicator-name">Health utilisation rate</p>
+              <p class="indicator-standard"><strong>standard</strong><br />
+                1-4 new visits/refugee/year</p>
+              <div class="indicator-value">
+                <div class="vertical-container">
+                  <div class="vertical-center">47%</div>
+                </div>
+              </div>
+              <p class="indicator-note">of a total of 196 reporting sites met the standard</p>
+            </div>
+            <!-- /indicator -->
+            <div class="indicator span4">
+              <div class="indicator-icon"><img src="img/ki-3.png" /> </div>
+              <p class="indicator-name">Measles vaccination coverage</p>
+              <p class="indicator-standard"><strong>standard</strong> <br />
+                &gt; 95%</p>
+              <div class="indicator-value">
+                <div class="vertical-container">
+                  <div class="vertical-center">16%</div>
+                </div>
+              </div>
+              <p class="indicator-note">of a total of 157 reporting sites met the standard</p>
+            </div>
+            <!-- /indicator --> 
+            
+          </div>
+        </div>
+        <div class="item">
+          <div class="row-fluid">
+            <div class="indicator span4">
+              <div class="indicator-icon"><img src="img/ki-4.png" /> </div>
+              <p class="indicator-name">Skilled attendance at delivery</p>
+              <p class="indicator-standard"><strong>standard</strong> <br />
+                &gt; 90%</p>
+              <div class="indicator-value">
+                <div class="vertical-container">
+                  <div class="vertical-center">46%</div>
+                </div>
+              </div>
+              <p class="indicator-note">of a total of 203 reporting sites met the standard</p>
+            </div>
+            <!-- /indicator -->
+            <div class="indicator span4">
+              <div class="indicator-icon"><img src="img/ki-5.png" /> </div>
+              <p class="indicator-name">Proportion of rape survivors who receive PEP</p>
+              <p class="indicator-standard"><strong>standard</strong> <br />
+                100%</p>
+              <div class="indicator-value">
+                <div class="vertical-container">
+                  <div class="vertical-center">15%</div>
+                </div>
+              </div>
+              <p class="indicator-note">of a total of 208 reporting sites met the standard</p>
+            </div>
+            <!-- /indicator -->
+            <div class="indicator span4">
+              <div class="indicator-icon"><img src="img/ki-7.png" /> </div>
+              <p class="indicator-name">Global Acute Malnutrition rate</p>
+              <p class="indicator-standard"><strong>standard</strong> <br />
+                &lt; 10%</p>
+              <div class="indicator-value">
+                <div class="vertical-container">
+                  <div class="vertical-center">x%</div>
+                </div>
+              </div>
+              <p class="indicator-note">of a total of 113 reporting sites met the standard</p>
+            </div>
+            <!-- /indicator --> 
+          </div>
+        </div>
+        <div class="item">
+          <div class="row-fluid">
+            <div class="indicator span4">
+              <div class="indicator-icon"><img src="img/ki-8.png" /> </div>
+              <p class="indicator-name">Severe Acute Malnutrition rate</p>
+              <p class="indicator-standard"><strong>standard</strong> <br />
+                &lt; 2%</p>
+              <div class="indicator-value">
+                <div class="vertical-container">
+                  <div class="vertical-center">x%</div>
+                </div>
+              </div>
+              <p class="indicator-note">of a total of 113 reporting sites met the standard</p>
+            </div>
+            <!-- /indicator -->
+            <div class="indicator span4">
+              <div class="indicator-icon"><img src="img/ki-9.png" /> </div>
+              <p class="indicator-name">Litres water/person/day</p>
+              <p class="indicator-standard"><strong>standard</strong> <br />
+                &gt; 20</p>
+              <div class="indicator-value">
+                <div class="vertical-container">
+                  <div class="vertical-center">45%</div>
+                </div>
+              </div>
+              <p class="indicator-note">of a total of 111 reporting sites met the standard</p>
+            </div>
+            <!-- /indicator -->
+            <div class="indicator span4">
+              <div class="indicator-icon"><img src="img/ki-10.png" /> </div>
+              <p class="indicator-name">Number persons/latrine</p>
+              <p class="indicator-standard"><strong>standard</strong> <br />
+                &lt; 20</p>
+              <div class="indicator-value">
+                <div class="vertical-container">
+                  <div class="vertical-center">72%</div>
+                </div>
+              </div>
+              <p class="indicator-note">of a total of 113 reporting sites met the standard</p>
+            </div>
+            <!-- /indicator --> 
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#ind-carousel" data-slide="prev">&lsaquo;</a> <a class="right carousel-control" href="#ind-carousel" data-slide="next">&rsaquo;</a> </div>
+    <!-- /container --> 
+  </div>
+</div>
+<!-- /container-fluid -->
+<div class="container-fluid" id="map">
+  <div class="container">
+    <div class="header">
+      <div class="pull-left"> <img class="header-object" src="img/map-icon.png" /></div>
+      <div class="header-body">
+        <h1 class="header-title">Map</h1>
+		<p>Click on a country to view key indicator data, and a link to visit the country homepage in Twine. From there, you can download the Annual Report 2013 and also access more interactive graphs and statistics.</p>
+     <p class="header-note">Note: If you do not yet have an account with Twine, you will need to first register and create one.</p>
+      </div>
+    </div>
+  </div>
+  <!-- /heading -->
+  <iframe class="map-frame" src="http://twine.locsis.com/ar2013_brochuresite/map/"> </iframe>
+</div>
+<!-- /container-fluid -->
+<div class="container-fluid" id="reports">
+  <div class="container">
+    <div class="header">
+      <div class="pull-left"> <img class="header-object" src="img/map-icon.png" /></div>
+      <div class="header-body">
+        <h1 class="header-title">Country Reports</h1>
+        <p>Click on a location to visit the country homepage in Twine. From there, you
+          can download the Annual Report 2013 and also access more interactive
+          graphs and statistics.</p>
+        <p class="header-note">Note: If you do not yet have an account with Twine, you will need to first register and create one.</p>
+      </div>
+    </div>
+  </div>
+  <!-- /heading --> 
+  <br />
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="span4 africa">West Africa</th>
+        <th class="span4 africa">Central Africa</th>
+        <th class="span4 africa">East and Horn of Africa</th>
+        <th class="span4 africa">South Africa</th>
+          </th>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=114BF00000000000"><img src="img/16/BF.png" /> Burkina Faso</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=111BI00000000000"><img src="img/16/BI.png" /> Burundi</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=112DJ00000000000"><img src="img/16/DJ.png" /> Djibouti</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=113ZM00000000000"><img src="img/16/ZM.png" /> Zambia</a></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=114CI00000000000"><img src="img/16/CI.png" /> Cote d'Ivoire</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=111CF00000000000"><img src="img/16/CF.png" /> Central African Republic</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=112ER00000000000"><img src="img/16/ER.png" /> Eritrea</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=114GH00000000000"><img src="img/16/GH.png" /> Ghana</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=111TD00000000000"><img src="img/16/TD.png" /> Chad</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=112ET00000000000"><img src="img/16/ET.png" /> Ethiopia</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=114LR00000000000"><img src="img/16/LR.png" /> Liberia</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=111CG00000000000"><img src="img/16/CG.png" /> Congo</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=112KE00000000000"><img src="img/16/KE.png" /> Kenya</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=114NE00000000000"><img src="img/16/NE.png" /> Niger</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=111CD00000000000"><img src="img/16/CD.png" /> Congo (DR)</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=112SS00000000000"><img src="img/16/SS.png" /> South Sudan</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=114TG00000000000"><img src="img/16/TG.png" /> Togo</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=111RW00000000000"><img src="img/16/RW.png" /> Rwanda</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=112SD00000000000"><img src="img/16/SD.png" /> Sudan</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=112TZ00000000000"><img src="img/16/TZ.png" /> Tanzania</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=112UG00000000000"><img src="img/16/UG.png" /> Uganda</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="span4 mideast">Middle East and North Africa</th>
+        <th class="span4 asia">Asia and Pacific</th>
+        <th class="span4 america">Americas</th>
+        <th class="span4 europe">Europe</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=551EG00000000000"><img src="img/16/EG.png" /> Egypt</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=331KZ00000000000"><img src="img/16/KZ.png" /> Kazakhstan</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=221AR00000000000"><img src="img/16/AR.png" /> Argentina</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=111AZ00000000000"><img src="img/16/AZ.png" /> Azerbaijan</a></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=551IQ00000000000"><img src="img/16/IQ.png" /> Iraq</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=333IN00000000000"><img src="img/16/IN.png" /> India</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=221BR00000000000"><img src="img/16/BR.png" /> Brazil</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=551JO00000000000"><img src="img/16/JO.png" /> Jordan</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=333NP00000000000"><img src="img/16/NP.png" /> Nepal</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=221CO00000000000"><img src="img/16/CO.png" /> Colombia</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=551LB00000000000"><img src="img/16/LB.png" /> Lebanon</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=334BD00000000000"><img src="img/16/BD.png" /> Bangladesh</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=221CR00000000000"><img src="img/16/CR.png" /> Costa Rica</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=551SY00000000000"><img src="img/16/SY.png" /> Syria</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=334MY00000000000"><img src="img/16/MY.png" /> Malaysia</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=221DO00000000000"><img src="img/16/DO.png" /> Dominican Republic</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=551YE00000000000"><img src="img/16/YE.png" /> Yemen</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=334TH00000000000"><img src="img/16/TH.png" /> Thailand</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=221EC00000000000"><img src="img/16/EC.png" /> Ecuador</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=552EG00000000000"><img src="img/16/BD.png" /> Algeria</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=335IR00000000000"><img src="img/16/IR.png" /> Iran</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=221MX00000000000"><img src="img/16/MX.png" /> Mexico</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=552MR00000000000"><img src="img/16/MR.png" /> Mauritania</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=335PK00000000000"><img src="img/16/PK.png" /> Pakistan</a></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=221PA00000000000"><img src="img/16/PA.png" /> Panama</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td><a target="_blank" href="http://twine.unhcr.org/app/app.php#app=Explore&loc=221VE00000000000"><img src="img/16/VE.png" /> Venezuela</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<!-- /container-fluid -->
+<div class="container-fluid" id="acknowledgement">
+  <div class="Center-Container">
+    <div class="Absolute-Center is-Responsive">
+      <h1 class="">UNHCR gratefully acknowledges the support of our partners in the publication of these reports.</h1>
+    </div>
+  </div>
+</div>
+<!-- /container-fluid -->
+<div class="container-fluid" id="contact">
+  <div class="row-fluid full-height contact-section">
+    <div class="span4">
+      <div class="Center-Container">
+        <div class="Absolute-Center is-Responsive"><img src="img/twine-logo.png" alt="twine" /></div>
+      </div>
+    </div>
+    <div class="span8">
+      <div class="vertical-container">
+        <div class="vertical-center">
+          <p>Twine aims to strengthen evidence based decision-making in humanitarian
+            programmes. It integrates a range of information management tools that
+            can be used to assess, monitor and evaluate humanitarian interventions
+            across a range of sectors and operational settings. The tools have been
+            developed by the UNHCR but are freely available for partners to use in
+            the field.</p>
+          <p>For more information please visit the Twine website http://twine.unhcr.org
+            or write to HQHIS@unhcr.org</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /container-fluid -->
+<div class="container-fluid footer">
+  <p class="copy pull-left">&copy; UNHCR 2014</p>
+  <p class="credit pull-right">Title photo: L.Culot / December 2013 End photo: J.Brouwer / July 2011</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>AR launch</title>
+<link href="styles/mapBox/base.css" type="text/css" rel="stylesheet" media="all"  />
+<link href="styles/mapBox/base.css" type="text/css" rel="stylesheet" media="all"  />
+<link href="styles/bootstrap.min.css" type="text/css" rel="stylesheet" media="all"  />
+<link href="styles/bootstrap-responsive.min.css" type="text/css" rel="stylesheet" media="all"  />
+<link href="styles/style.css" type="text/css" rel="stylesheet" media="all"  />
+<script src="scripts/jquery.js" type="text/javascript"></script>
+<!-- D3.js -->
+<script src="scripts/d3.v3.min.js" type="text/javascript"></script>
+<script src="scripts/topojson.v1.min.js" type="text/javascript"></script>
+<script src="scripts/queue.v1.min.js" type="text/javascript"></script>
+<!-- Leaflet -->
+<link href="scripts/leaflet-0.7.2/leaflet.css" type="text/css" rel="stylesheet" media="all"  />
+</head>
+<script type="text/javascript">
+</script>
+<body>
+<!-- /container-fluid -->
+<!-- update padding so map covers panel -->
+<div class="container-fluid" style="padding:0px;" id="map">
+    <div class="col12 contain fill-grey">
+      <div id="leaflet_map" class="center quiet fill-grey" style="z-index:99">
+        <!-- when using Leaflet, height must be set! Done with jQuery using parent container in map.js -->
+        <script src="scripts/leaflet-0.7.2/leaflet.js" type="text/javascript"></script>
+        <script src="scripts/map.js" type="text/javascript"></script>
+      </div>
+
+      <div id="indicator-list" class='col4 pady2 pin-left offcanvas-left animate clearfix' style="padding-top:80px;z-index:999;">
+        <div id="indicator_content" class="round-right pad2y fill-grey">
+          <!-- -->
+        </div>   
+      </div>
+
+      <div class='col4 pin-top clearfix'>
+        <div id="map_country_label" class='round pad1 contain' style="z-index:9999;background:rgba(56,135,190,0.8)">
+          <!-- Mouse over goes here -->
+        </div>
+        <a id='reset_map' title='Reset map' class='pin-right btn btn-large icon x' style='z-index:99991;display:none;top:20px;right:20px;height: 40px;'></a> 
+        <a id="twine_view" title='View in Twine' class='pin-right btn btn-large' style='z-index:99992;display:none;top:20px;right:80px;height: 40px;'>View in Twine</a> 
+      </div>      
+
+        
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
