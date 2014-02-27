@@ -232,8 +232,8 @@
 					indHtml += '<tr>';
 						indHtml += '<th>Indicator</th>';
 						indHtml += '<th>Standard</th>';
-						indHtml += '<th>Min</th>';
-						indHtml += '<th>Max</th>';
+						indHtml += '<th>Min*</th>';
+						indHtml += '<th>Max*</th>';
 		      		indHtml += '</tr>';
 
 			      	// Mort U5
@@ -417,6 +417,7 @@
 	                indHtml += '</tbody>';
 	            indHtml += '</table>';
 	        indHtml += '</div>';
+	        indHtml += '<p>* data represent the minimum and maximum range of indicator values reported at site level.</p>';
 	    indHtml += '</figure>';
 			
        	// Update list

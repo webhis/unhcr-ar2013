@@ -11,7 +11,7 @@ html, body {
 /* nav */
 
 .navbar {
-	font-size:13px;
+	font-size:16px;
 	font-weight:bold;
 	
 }
@@ -54,8 +54,8 @@ img.center {
 	color:#73d7e9;
 }
 p {
-	font-size:15px;
-	line-height:20px;
+	font-size:16px;
+	line-height:21px;
 	color:#808285;
 }
 
@@ -132,7 +132,7 @@ p {
 	width:100%;
 }
 .container-background h1 {
-	font-size:26px;
+	font-size:35px;
 	padding-top:20px;
 }
 .container-background img {
