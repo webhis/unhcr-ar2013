@@ -4,7 +4,6 @@
 (function() {
    
    	// Data will be coming from Twine + Twine Leaflet class
-   	var url = document.location.origin + document.location.pathname;
 	var topoJson = 'data/a_r_geolevels.json';
 	var a_reports = 'data/ar2013.20140226.json';
    	// Map GeoJSON
@@ -48,7 +47,7 @@
 	function _setData(error, _topoJson, _a_reports){
 
 		// Update default label container
-		$('#map_country_label').html("<h3 style='color:#FFF'>Select a country to view indicators</h3>");
+		$('#map_country_label').html("<h4 style='color:#FFF'>Select a country to view indicators</h4>");
 
         // TopoJSON to GeoJSON
         var geolevel3 = topojson.feature(_topoJson, _topoJson.objects.geolevel3);     
@@ -132,19 +131,18 @@
 	        mouseover: function(e){
 	            // Update map country label
 	            if(!selectionLayer){
-	            	$('#map_country_label').html("<h3 style='color:#FFF'>"+name+"</h3>");
+	            	$('#map_country_label').html("<h4 style='color:#FFF'>"+name+"</h4>");
 	            }
 	        },
 	        mouseout: function(e){
 	        	if(!selectionLayer){
-					$('#map_country_label').html("<h3 style='color:#FFF'>Select a country to view indicators</h3>");
+					$('#map_country_label').html("<h4 style='color:#FFF'>Select a country to view indicators</h4>");
 	        	}
 	        },
 	        click: function(e){
 	        	//
 	        	// Udpate reports panel
-	        	$('#map_country_label').html("<h3 style='color:#FFF'>"+name+"</h3>");
-				$('#indicator-list').css('display','block');
+	        	$('#map_country_label').html("<h4 style='color:#FFF'>"+name+"</h4>");
 
 	        	// Select map
 	        	if(selectionLayer){
@@ -179,7 +177,7 @@
 				_setIndicatorList(iso_a2);
 
 				//
-				document.location.hash = '#indicator-list';
+				$('#indicator-list').show('slide',200);
 
 				// Report close onClick event
 				$('#reset_map').live('click', function(){
@@ -188,10 +186,11 @@
 					selectionLayer = false;
 					$('#reset_map').css('display','none');
 					$('#twine_view').css('display','none');
-					$('#indicator-list').css('display','none');
-					$('#map_country_label').html("<h3 style='color:#FFF'>Select a country to view indicators</h3>");
+					//$('#indicator-list').css('display','none');
+					$('#map_country_label').html("<h4 style='color:#FFF'>Select a country to view indicators</h4>");
 					map.setView([0,0], 3, {animate: true});
-					document.location.hash = '';
+					$('#indicator-list').hide('slide',200);
+					//document.location.hash = '';
 				});        				
 
 	        },
@@ -423,7 +422,7 @@
        	// Update list
 		$('#indicator_content').html(indHtml);
 		var h = parseInt($('#indicator_content').css('height').replace("px",""));
-		$('#twine_view').css('top',20+"px");
+		$('#twine_view').css('top',10+"px");
 		$('#twine_view').css('display','block');
 		$('#twine_view').off('click');
 		$('#twine_view').on('click', function(){
