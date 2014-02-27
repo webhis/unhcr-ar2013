@@ -5,7 +5,7 @@
    
    	// Data will be coming from Twine + Twine Leaflet class
 	var topoJson = 'data/a_r_geolevels.json';
-	var a_reports = 'data/ar2013.20140226.json';
+	var a_reports = 'data/ar2013.20140227.json';
    	// Map GeoJSON
     var gl3_json = {
         type: 'FeatureCollection',

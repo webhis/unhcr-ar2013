@@ -7,7 +7,7 @@ mysql_connect("localhost","siv_read","siv_pwd1");
 mysql_select_db($dbname) or die('error:' . mysql_error());
    
 //build main data json
-$fields = array(array("PH_MORT_U5MR",2), array("PH_VACC_MEASCOV","%"), array("PH_UTIL_HEALTHUTIL",2), array("RH_ANC_SKILLATT","%"), array("RH_SGBV_PEP","%"), array("HIV_PMTCT_HIV_PMTCTCOV","%"), array("WASH_WATERPPPD",1), array("WASH_DROPHOLE",1));
+$fields = array(array("PH_MORT_U5MR",1), array("PH_VACC_MEASCOV","%"), array("PH_UTIL_HEALTHUTIL",1), array("RH_ANC_SKILLATT","%"), array("RH_SGBV_PEP","%"), array("HIV_PMTCT_HIV_PMTCTCOV","%"), array("WASH_WATERPPPD",0), array("WASH_DROPHOLE",0));
 
 foreach($fields as $field) {
 	switch ($field[1]){
