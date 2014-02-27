@@ -1,9 +1,9 @@
 <?php
 // utility to return json for AR 2013 brochure site
 
-$dbname = "prod_siv_data";
+$dbname = "siv_data";
 
-mysql_connect("localhost","user","pwd");
+mysql_connect("localhost","siv_read","siv_pwd1");
 mysql_select_db($dbname) or die('error:' . mysql_error());
    
 //build main data json
