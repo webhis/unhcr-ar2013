@@ -13,29 +13,33 @@ html, body {
 .navbar {
 	font-size:16px;
 	font-weight:bold;
-	
+	color:#d6f3f8;	
 }
 .navbar-twine .navbar-inner {
 	background-color:#77d7e7;
 	background-image:none;
 	border-bottom:2px dotted #fff;
 	box-shadow:none;
+	filter:none;
+	color:#d6f3f8;	
 }
 .navbar .nav>li {
 	line-height:40px;
 }
 .navbar .nav>li>a {
 	text-shadow:none;
-	color:rgba( 255, 255, 255, .7);
+	color:#d6f3f8 !important;
 }
 .navbar .nav>li>a:hover {
-		color:rgba( 255, 255, 255, 1);
+	color:#fff !important;
 }
 .navbar .nav>.active>a, .navbar .nav>.active>a:hover, .navbar .nav>.active>a:focus {
-	color:rgb( 255, 255, 255, 1) !important;
+	color:#fff !important;
 	background:none;
 	box-shadow:none;
 	text-shadow:none;
+	filter:none;
+	outline:none;
 }
 /* genreic styles */
 img.center {
