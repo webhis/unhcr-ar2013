@@ -7,7 +7,7 @@ mysql_connect("localhost","siv_read","siv_pwd1");
 mysql_select_db($dbname) or die('error:' . mysql_error());
    
 //build main data json
-$fields = array(array("PH_MORT_U5MR",1), array("PH_VACC_MEASCOV","%"), array("PH_UTIL_HEALTHUTIL",1), array("RH_ANC_SKILLATT","%"), array("RH_SGBV_PEP","%"), array("HIV_PMTCT_HIV_PMTCTCOV","%"), array("WASH_WATERPPPD",0), array("WASH_DROPHOLE",0));
+$fields = array(array("PH_MORT_U5MR",1), array("PH_VACC_MEASCOV","%"), array("PH_UTIL_HEALTHUTIL",1), array("RH_ANC_SKILLATT","%"), array("RH_SGBV_PEP","%"), array("HIV_PMTCT_HIV_PMTCTCOV","%"), array("WASH_WATERPPPD",1), array("WASH_DROPHOLE",1));
 
 foreach($fields as $field) {
 	switch ($field[1]){
@@ -22,7 +22,7 @@ foreach($fields as $field) {
 }
 
 $sql = 'SELECT MID(locid,4,2) AS countryiso, SUM(GEN_POP_TOTAL) AS gen_pop_total, ' . $sql . ' MIN(CONCAT("http://twine.unhcr.org/app/app.php#app=Explore&loc={{",MID(locid,4,2),"}}")) AS action FROM `de_ar` WHERE `reportdateiso8601` = "2013" GROUP BY MID(locid,4,2);';
-// echo $sql;
+//echo $sql;
 $data = mysql_query($sql) or die('error:' . mysql_error());
 
 while($row = mysql_fetch_object($data))
