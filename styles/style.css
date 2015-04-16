@@ -59,6 +59,7 @@ p {
 	line-height:21px;
 	color:#808285;
 }
+/* text styling */
 
 /* vertically center elements */
 .vertical-container {
@@ -115,9 +116,21 @@ p {
 	line-height:18px;
 }
 /* specific styling */
+.text-60 {
+	font-size: 60px;
+}
+.blue-text {
+	color: #0077C0;
+}
+.text-left {
+	text-align: left;
+}
+.text-justified {
+	text-align: justify;
+}
 /* home */
 #home {
-	background:url("../img/header.jpg") center no-repeat;
+	background:url("../img/header.png") center no-repeat;
 	position:relative;
 	color:#fff;
 	padding:0px;
@@ -126,84 +139,84 @@ p {
 
 }
 .container-background {
-	background-color:rgba(119, 215, 231, .8);
 	position:absolute;
-	top:66%;
-	height:130px;
-	padding:55px 0px;
+	top:124px;
+	padding:0px 0px;
 	width:100%;
+	height: 100%;
 }
-.container-background h1 {
-	font-size:35px;
-	padding-top:20px;
+.svgNav {
+	position: absolute;
+	z-index: 1;
+}
+.title {
+	background-color: rgba(255, 255, 255, 0.8);
+	color: #414042;
+	font-weight: normal;
+	font-size: 35px;
+	padding: 55px;
+	position: absolute;
+	right: 0px;
+	width: 100%;
+	z-index: 0;
+	top: 25%;
 }
 .container-background img {
 	padding:0px 37px 0px 58px;
 }
-/* introduction */
-.intro-section {
-	height:245px;
+/* Sections */
+.ph-color h1 {
+	color:#57235f;
 }
-.intro-section:nth-of-type(even) {
-	background-color:#fdfdfd;
+.ph-color .subtitle-color {
+	color:#414042;
 }
-
-/* key indicators */
-
-#indicators {
-	height:646px;
+.ph-color h5 {
+	color:#fff;
+	background-color:#57235f;
+	line-height: 1.8em;
+	letter-spacing:.15em;
+	padding: 0px .25em;
 }
-.indicator-container {
-	height:455px;
-	margin-top:70px;
+.rhhiv-color h1 {
+	color:#ed1165;
 }
-.indicator-row {
-	width:2200px;
-	height:100%;
+.rhhiv-color .subtitle-color {
+	color:#414042;
 }
-.indicator {
-	color:#808285;
-	text-align:center;
-	padding:0px 0px;
-	height:100%;
-	float:left;
+.rhhiv-color h5 {
+	color:#fff;
+	background-color:#ed1165;
+	line-height: 1.8em;
+	letter-spacing:.15em;
+	padding: 0px .25em;
 }
-.indicator:nth-of-type(odd){
-	background-color:#edf8f9;
+.ntfs-color h1 {
+	color:#22b24c;
 }
-.indicator-icon {
-	margin:10px auto 10px;
-	width:90px;
+.ntfs-color .subtitle-color {
+	color:#414042;
 }
-.indicator-value {
-	margin:auto;
-	margin-bottom:10px;
-	font-size:70px;
-	line-height:76px;
-	color:#000;
+.ntfs-color h5 {
+	color:#fff;
+	background-color:#22b24c;
+	line-height: 1.8em;
+	letter-spacing:.15em;
+	padding: 0px .25em;
 }
-.indicator-standard {
-	color:#4abad8;
-	height:70px;
-	margin-bottom:0px;
+.wash-color h1 {
+	color:#00aeef;
 }
-.indicator-standard strong {
-	color:#289fc9;
+.wash-color .subtitle-color {
+	color:#414042;
 }
-.indicator-note {
-	font-size:15px;
-	line-height:21px;
+.wash-color h5 {
+	color:#fff;
+	background-color:#00aeef;
+	line-height: 1.8em;
+	letter-spacing:.15em;
+	padding: 0px .25em;
 }
-
-.carousel-control {
-	left:-60px;
-	top: 50%;
-
-}
-.carousel-control.right {
-	right:-60px;
-}
-
 /* map */
 #map {
 	height:840px;
